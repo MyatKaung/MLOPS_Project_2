@@ -1,0 +1,12 @@
+2025-04-17 21:23:04,085 - ERROR - Error while reading YAML file
+2025-04-17 21:25:06,748 - ERROR - Error while reading YAML file
+2025-04-17 21:26:27,126 - INFO - Succesfully read the YAML file
+2025-04-17 21:26:27,127 - INFO - Data ingestion initialized.
+2025-04-17 21:26:49,378 - INFO - Succesfully read the YAML file
+2025-04-17 21:26:49,378 - INFO - Data ingestion initialized.
+2025-04-17 21:26:49,378 - INFO - Starting data ingestion...
+2025-04-17 21:26:53,188 - INFO - File anime.csv downloaded to artifacts/raw/anime.csv
+2025-04-17 21:26:55,209 - INFO - File anime_with_synopsis.csv downloaded to artifacts/raw/anime_with_synopsis.csv
+2025-04-17 21:28:27,115 - INFO - Large file detected only downloading 5 million rows of animelist.csv
+2025-04-17 21:28:27,117 - INFO - Data ingestion completed.
+2025-04-17 21:28:27,117 - INFO - Data ingestion process finished.

@@ -1,0 +1,45 @@
+2025-04-19 19:11:42,419 - INFO - DataProcessing Initialized
+2025-04-19 19:11:42,778 - INFO - Data loaded successfully from artifacts/raw/animelist.csv
+2025-04-19 19:11:42,854 - INFO - Filtered users with less than 400 ratings
+2025-04-19 19:11:43,299 - INFO - Ratings scaled to [0, 1]
+2025-04-19 19:11:43,346 - INFO - Data encoded successfully
+2025-04-19 19:11:43,547 - INFO - Data split into training and testing sets
+2025-04-19 19:11:43,552 - INFO - Saved user2user_encoded to artifacts/processed
+2025-04-19 19:11:43,558 - INFO - Saved user2user_decoded to artifacts/processed
+2025-04-19 19:11:43,581 - INFO - Saved anime2anime_encoded to artifacts/processed
+2025-04-19 19:11:43,604 - INFO - Saved anime2anime_decoded to artifacts/processed
+2025-04-19 19:11:45,615 - INFO - Artifacts saved successfully
+2025-04-19 19:11:48,150 - INFO - DF AND SYNOPSIS_DF saved successfully
+2025-04-19 19:11:48,152 - INFO - Data processing pipeline run successfully
+2025-04-19 21:15:06,335 - INFO - Model Training Initialized
+2025-04-19 21:15:06,354 - INFO - Data loaded successfully
+2025-04-19 21:15:06,381 - INFO - Succesfully read the YAML file
+2025-04-19 21:15:06,381 - INFO - Loading configuration file
+2025-04-19 21:15:06,702 - ERROR - Error occured during model creation: 'BaseModel' object has no attribute 'self'
+2025-04-19 21:15:06,702 - ERROR - Error in model training: Error in /Users/myatkaung/Desktop/MLOPS_PROJECTS/Project2/src/base_model.py at line 40: Error in model creation
+2025-04-19 21:15:06,702 - ERROR - Error in main: Error in /Users/myatkaung/Desktop/MLOPS_PROJECTS/Project2/src/model_training.py at line 37: Error in model training
+2025-04-19 21:16:41,903 - INFO - Model Training Initialized
+2025-04-19 21:16:41,927 - INFO - Data loaded successfully
+2025-04-19 21:16:41,951 - INFO - Succesfully read the YAML file
+2025-04-19 21:16:41,951 - INFO - Loading configuration file
+2025-04-19 21:16:42,113 - INFO - Model created successfully....
+2025-04-19 21:17:09,568 - INFO - Model trained successfully
+2025-04-19 21:17:09,568 - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-04-19 21:17:09,598 - INFO - Model saved to artifacts/model/model.h5
+2025-04-19 21:17:09,600 - INFO - Weights extracted from layer user_embedding successfully
+2025-04-19 21:17:09,602 - INFO - Weights extracted from layer anime_embedding successfully
+2025-04-19 21:17:09,602 - ERROR - Error saving model weights: [Errno 2] No such file or directory: 'artifacts/weights/user_weights.pkl'
+2025-04-19 21:17:09,602 - ERROR - Error during model training: Error in /Users/myatkaung/Desktop/MLOPS_PROJECTS/Project2/src/model_training.py at line 111: Error in saving model weights
+2025-04-19 21:17:09,602 - ERROR - Error in model training: Error in /Users/myatkaung/Desktop/MLOPS_PROJECTS/Project2/src/model_training.py at line 79: Error in model training
+2025-04-19 21:17:09,602 - ERROR - Error in main: Error in /Users/myatkaung/Desktop/MLOPS_PROJECTS/Project2/src/model_training.py at line 83: Error in model training
+2025-04-19 21:22:57,420 - INFO - Model Training Initialized
+2025-04-19 21:22:57,445 - INFO - Data loaded successfully
+2025-04-19 21:22:57,467 - INFO - Succesfully read the YAML file
+2025-04-19 21:22:57,467 - INFO - Loading configuration file
+2025-04-19 21:22:57,576 - INFO - Model created successfully....
+2025-04-19 21:23:23,977 - INFO - Model trained successfully
+2025-04-19 21:23:23,977 - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-04-19 21:23:24,004 - INFO - Model saved to artifacts/model/model.h5
+2025-04-19 21:23:24,007 - INFO - Weights extracted from layer user_embedding successfully
+2025-04-19 21:23:24,008 - INFO - Weights extracted from layer anime_embedding successfully
+2025-04-19 21:23:24,011 - INFO - Weights saved to artifacts/weights/user_weights.pkl and artifacts/weights/anime_weights.pkl

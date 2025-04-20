@@ -1,0 +1,8 @@
+.venv/
+.env 
+artifacts/raw/
+artifacts/processed/
+artifacts/model/
+artifacts/weights/
+artifacts/model_checkpoint/
+Project2.egg-info
