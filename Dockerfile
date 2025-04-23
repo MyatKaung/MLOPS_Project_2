@@ -1,8 +1,9 @@
 FROM --platform=linux/arm64 python:3.10-slim
 
-# Set environment variables
+# Set environment variables including Comet ML API key
 ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    COMET_API_KEY=VW42yLVEuqtmE7ZTRFNdFYe2E
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
