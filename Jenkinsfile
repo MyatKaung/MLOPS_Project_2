@@ -59,13 +59,9 @@ pipeline {
                         gcloud config set project ${GCP_PROJECT}
                         gcloud auth configure-docker --quiet
                         
-                        # Setup Docker Buildx
-                        docker buildx create --use --name multi-platform-builder || true
-                        
-                        # Build and push for both platforms
-                        docker buildx build --platform linux/amd64,linux/arm64 \
-                        -t gcr.io/${GCP_PROJECT}/ml-project:latest \
-                        --push .
+                        # For standard Docker without multi-platform:
+                        docker build --platform=linux/amd64 -t gcr.io/${GCP_PROJECT}/ml-project:latest .
+                        docker push gcr.io/${GCP_PROJECT}/ml-project:latest
                         '''
                     }
                 }
@@ -73,7 +69,7 @@ pipeline {
         }
 
 
-         stage('Deploying to Kubernetes'){
+        stage('Deploying to Kubernetes'){
             steps{
                 withCredentials([file(credentialsId:'gcp-key' , variable: 'GOOGLE_APPLICATION_CREDENTIALS' )]){
                     script{

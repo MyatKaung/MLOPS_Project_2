@@ -1,11 +1,11 @@
-# Base image with common dependencies
-FROM python:3.10-slim as base
+# Base image
+FROM python:3.10-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     COMET_API_KEY=VW42yLVEuqtmE7ZTRFNdFYe2E
 
-# Install common dependencies
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     libatlas-base-dev \
@@ -17,35 +17,24 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
+
 COPY . .
+
+# Install dependencies
 RUN pip install --no-cache-dir -e .
 
-# ARM64-specific build (for Apple Silicon)
-FROM base AS builder-arm64
-RUN --platform=linux/arm64 python pipeline/training_pipeline.py
-
-# AMD64-specific build (for GKE)
-FROM base AS builder-amd64
-RUN --platform=linux/amd64 python pipeline/training_pipeline.py
-
-# Final image that selects the right builder based on target platform
-FROM base AS final
-
-# Copy trained model from the appropriate builder
-COPY --from=builder-arm64 /app/models /app/models-arm64
-COPY --from=builder-amd64 /app/models /app/models-amd64
-
-# Script to select the right model at runtime
-RUN echo '#!/bin/bash \n\
-ARCH=$(uname -m) \n\
-if [ "$ARCH" = "x86_64" ]; then \n\
-  cp -r /app/models-amd64/* /app/models/ \n\
-elif [ "$ARCH" = "aarch64" ]; then \n\
-  cp -r /app/models-arm64/* /app/models/ \n\
-fi \n\
-exec "$@"' > /app/entrypoint.sh && chmod +x /app/entrypoint.sh
+# Remove the training step for now
+# RUN python pipeline/training_pipeline.py
 
 EXPOSE 5000
+
+# Create a script that trains the model if needed
+RUN echo '#!/bin/bash \n\
+if [ ! -f /app/models/model.pkl ]; then \n\
+  echo "Training model..." \n\
+  python pipeline/training_pipeline.py \n\
+fi \n\
+exec "$@"' > /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["python", "application.py"]
