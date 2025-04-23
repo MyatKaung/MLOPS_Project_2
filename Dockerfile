@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 python:3.10-slim
+FROM python:3.10-slim
 
 # Set environment variables including Comet ML API key
 ENV PYTHONDONTWRITEBYTECODE=1 \
